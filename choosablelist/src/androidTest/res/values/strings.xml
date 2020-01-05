@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ChoosableList</string>
+
+    <string-array name="numbers">
+
+        <item>One</item>
+        <item>Ten</item>
+        <item>Fifteen</item>
+        <item>NinetyNine</item>
+        <item>OneThousand</item>
+        <item>NegativeFive</item>
+    </string-array>
+
+    <integer-array name="values">
+        <item>1</item>
+        <item>10</item>
+        <item>15</item>
+        <item>99</item>
+        <item>1000</item>
+        <item>-5</item>
+
+    </integer-array>
+</resources>

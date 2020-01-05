@@ -1,0 +1,13 @@
+apply from: "$rootDir/../buildsystem/template-android-library.gradle"
+apply plugin: 'digital.wup.android-maven-publish'
+
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            groupId = 'com.gorillamo.ui'
+            artifactId = 'choosablelist'
+            version = '0.1.0'
+            from components.android
+        }
+    }
+}
