@@ -13,8 +13,9 @@ class MockActivity :Activity(){
         setContentView(layout)
 
         textView = findViewById<TextView>(com.gorillamo.ui.choosablelist.test.R.id.result)
-
         val chooseable = findViewById<ChoosableList>(com.gorillamo.ui.choosablelist.test.R.id.choosable)
+        if(shouldMockPositionFromCode) {chooseable.setStartingPosition(5)}
+
         chooseable.setItemClickcallback {
             textView.text = it.toString()
         }
@@ -22,6 +23,7 @@ class MockActivity :Activity(){
 
     companion object{
         var layout:Int = 0
+        var shouldMockPositionFromCode = false
     }
 
 }

@@ -13,13 +13,18 @@ class ChoosableList :RecyclerView{
 
     lateinit var values:IntArray
     lateinit var names:Array<String>
-    var startingPosition:Int = 0
+    /**
+     * When setting the startingPosition by code, make sure to only place it in the Oncreate method
+     * of an Activity or a Fragment. Otherwise this value will
+     */
+    private var startingPosition:Int = 0
 
     private lateinit var snapHelper: DetectableLinearSnapHelper
     private var itemClickCallback:((Int)->Unit)? = null
     private var snaphelperCallback:((Int)->Unit) = {
         itemClickCallback?.invoke(values[it])
     }
+
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
         setupAttributes(attrs)
@@ -31,6 +36,9 @@ class ChoosableList :RecyclerView{
         setupView()
     }
 
+    fun setStartingPosition(startingPosition:Int){
+        this.startingPosition = startingPosition
+    }
 
     private fun setupAttributes(attrs: AttributeSet){
 

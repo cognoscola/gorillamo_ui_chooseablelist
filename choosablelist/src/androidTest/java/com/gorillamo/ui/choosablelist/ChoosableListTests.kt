@@ -86,8 +86,23 @@ class ChoosableListTests {
     }
 
     @Test
-    fun verifyPositionStartsCorrectly() {
+    fun verifyPositionStartsCorrectlyFromXml() {
         MockActivity.layout = com.gorillamo.ui.choosablelist.test.R.layout.layout_mock_pos_last
+
+        activityRule.launchActivity(null)
+
+        //sleep for a sec for animations to finish
+        Thread.sleep(1200)
+
+        onView(allOf(withText("NegativeFive"))).check(matches(isDisplayed()))
+        onView(withText("-5")).check(matches(isDisplayed()))
+
+    }
+
+    @Test
+    fun verifyPositionSpecifiedByCodeOverridesXmlPosition() {
+        MockActivity.layout = com.gorillamo.ui.choosablelist.test.R.layout.layout_mock_pos_first
+        MockActivity.shouldMockPositionFromCode = true
 
         activityRule.launchActivity(null)
 
